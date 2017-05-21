@@ -4,15 +4,17 @@
 [![Build Status](https://travis-ci.org/funkia/io.svg?branch=master)](https://travis-ci.org/funkia/io)
 [![codecov](https://codecov.io/gh/funkia/io/branch/master/graph/badge.svg)](https://codecov.io/gh/funkia/io)
 [![Dependency Status](https://david-dm.org/funkia/io.svg)](https://david-dm.org/funkia/io)
+[![npm version](https://badge.fury.io/js/%40funkia%2Fio.svg)](https://badge.fury.io/js/%40funkia%2Fio)
 
 # IO
 
 ## Introduction
 
-`IO` is a structure for expressing imperative computations in a
-pure way. In a nutshell it gives us the convenience of imperative
-programming while preserving the properties of a purely functional
-programming.
+`IO` is a structure for expressing imperative computations in a pure
+way. In a nutshell it gives us the convenience of imperative
+programming while preserving some of the properties of a purely
+functional programming. Most notable code that uses IO can be tested
+in a purely declarative way without actually running side-effects.
 
 ## Table of contents
 
@@ -20,7 +22,15 @@ programming.
 * [Tutorial](#tutorial)
 * [Contributing](#contributing)
 
-# Installation
+## Features
+
+* Provides a declarative and pure way to express code with side-effects
+* Has a nice API for easily testing `IO` code without running side-effects
+* Ships with both CommonJS and ES2015 modules for tree-shaking
+* Is written in TypeScript so comes with full comprehensive type
+  definitions
+
+## Installation
 
 IO can be installed from npm. The package ships with both
 CommonJS modules and ES6 modules
@@ -33,10 +43,10 @@ npm install @funkia/io
 
 ### Impure functions
 
-Let's say we have a function `fire Missiles` that takes a number `n` and
-then fires `n` missiles. If fewer than `n` missiles are available then
-only that amount of missiles is fired. The function returns the amount
-of missiles that was successfully fired.
+Let's say we have a function `fireMissiles` that takes a number `n`
+and then fires `n` missiles. If fewer than `n` missiles are available
+then only that amount of missiles is fired. The function returns the
+amount of missiles that was successfully fired.
 
 ```typescript
 function fireMissiles(amount: number): number { ... }
