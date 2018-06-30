@@ -18,17 +18,15 @@
     "test": "nyc mocha --recursive test/**/*.ts",
     "test-watch": "mocha -R progress --watch --compilers ts:ts-node/register test/**/*.ts",
     "codecov": "codecov -f coverage/coverage-final.json",
-    "release-major": "xyz --repo git@github.com:funkia/io.git --increment major",
-    "release-minor": "xyz --repo git@github.com:funkia/io.git --increment minor",
-    "release-patch": "xyz --repo git@github.com:funkia/io.git --increment patch"
+    "release": "np"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/funkia/io.git"
   },
   "keywords": [
-    "frp",
-    "functional reactive programming",
+    "io",
+    "monad",
     "pure",
     "funkia"
   ],
@@ -39,30 +37,19 @@
   },
   "homepage": "https://github.com/funkia/io#readme",
   "dependencies": {
-    "@funkia/jabz": "0.0.23",
-    "tslib": "^1.8.1"
+    "@funkia/jabz": "0.0.24",
+    "tslib": "^1.9.3"
   },
   "devDependencies": {
-    "@types/benchmark": "^1.0.31",
-    "@types/chai": "^4.0.8",
-    "@types/mocha": "^2.2.44",
-    "@types/sinon": "^4.1.0",
-    "benchmark": "^2.1.4",
-    "browser-env": "^3.2.4",
-    "browserify": "^14.5.0",
-    "browserify-istanbul": "^3.0.1",
+    "@types/chai": "^4.1.4",
+    "@types/mocha": "^5.2.4",
     "chai": "^4.1.2",
-    "codecov": "^3.0.0",
-    "mocha": "^4.0.1",
-    "nyc": "^11.3.0",
-    "sinon": "^4.1.3",
-    "source-map-support": "^0.5.0",
-    "ts-node": "^3.3.0",
-    "tsify": "^3.0.4",
-    "typescript": "^2.6.2",
-    "watchify": "^3.9.0",
-    "webpack": "^3.10.0",
-    "xyz": "2.1.0"
+    "codecov": "^3.0.2",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
+    "source-map-support": "^0.5.6",
+    "ts-node": "^7.0.0",
+    "typescript": "^2.9.2"
   },
   "nyc": {
     "extension": [

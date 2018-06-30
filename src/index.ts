@@ -1,5 +1,4 @@
 import { Freer, liftF } from "./freer";
-import { Monad, AbstractMonad } from "@funkia/jabz";
 
 function deepEqual(a: any, b: any): boolean {
   if (typeof a === "object" && typeof b === "object") {
