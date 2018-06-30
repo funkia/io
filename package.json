@@ -17,6 +17,7 @@
     "clean": "rm -rf dist coverage .nyc_output",
     "test": "nyc mocha --recursive test/**/*.ts",
     "test-watch": "mocha -R progress --watch --compilers ts:ts-node/register test/**/*.ts",
+    "format": "prettier --write \"{src,test}/**/*.ts\"",
     "codecov": "codecov -f coverage/coverage-final.json",
     "release": "np"
   },
@@ -38,6 +39,7 @@
   "homepage": "https://github.com/funkia/io#readme",
   "dependencies": {
     "@funkia/jabz": "0.0.24",
+    "prettier": "^1.13.7",
     "tslib": "^1.9.3"
   },
   "devDependencies": {
@@ -64,5 +66,8 @@
       "html",
       "text"
     ]
+  },
+  "prettier": {
+    "arrowParens": "always"
   }
 }
