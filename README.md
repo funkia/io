@@ -20,6 +20,7 @@ in a purely declarative way without actually running side-effects.
 
 * [Installation](#installation)
 * [Tutorial](#tutorial)
+* [API](#api)
 * [Contributing](#contributing)
 
 ## Features
@@ -256,6 +257,40 @@ it should get back the response `5`. After this the next line will
 throw because our implementation passes a string to `sendMessage` that
 mentions `10` instead of `5`. Therefore `testIO` will throw and our
 test will fail.
+
+## API
+
+### `IO.of(a: A): IO<A>`
+
+Converts any value into a IO that will return that value.
+
+### `withEffects((...args) => A): IO<A>`
+
+Converts an impure function into an `IO`
+
+### `withEffectsP(p: Promise<A>): IO<A>`
+
+Converts a Promise into an `IO`
+
+### `throwE(error: any): IO<any>`
+
+Once an error is `yield`ed the rest of the computation isn't being
+run. The resulting `IO` value will produce an error instead of a
+value.
+
+### `catchE(errorHandler: (error: any) => IO<any>, io: IO<any>): IO<any>`
+
+As its first argument it takes a
+error function handling. As its second argument it takes an `IO`
+computation. It returns a new `IO` computation.
+
+### `testIO<A>(e: IO<A>, arr: any[], a: A): void`
+
+The first argument to `testIO` is the IO-action to test. The second is
+a list of pairs. The first element in each pair is an IO-action that
+the code should attempt to perform, the second element is the value
+that performing the action should return. The last argument is the
+expected result of the entire computation.
 
 ## Contributing
 
