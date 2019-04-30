@@ -9,6 +9,9 @@
     "test": "test",
     "dist": "dist"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "npm run build-es6; npm run build-cmjs",
     "build-es6": "tsc -P ./tsconfig-release.json --outDir 'dist/es' --target es2015 --module es2015",

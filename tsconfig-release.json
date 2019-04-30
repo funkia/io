@@ -8,7 +8,7 @@
     "outDir": "./dist",
     "rootDir": "./src",
     "noImplicitAny": false,
-    "sourceMap": true,
+    "sourceMap": false,
     "experimentalDecorators": true,
     "lib": ["dom", "es5", "es2015.core", "es2015.promise", "es2015.iterable"]
   },
