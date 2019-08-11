@@ -56,12 +56,12 @@ describe("IO", () => {
       assert.equal(10, res);
     });
   });
-  it("applies function in effects to value in other effects", () => {
-    const f1 = IO.of((a: number) => a * 2);
-    const f2 = IO.of(3);
-    const applied = ap(f1, f2);
-    return runIO(applied).then((res) => assert.equal(res, 6));
-  });
+  // it("applies function in effects to value in other effects", () => {
+  //   const f1 = IO.of((a: number) => a * 2);
+  //   const f2 = IO.of(3);
+  //   const applied = ap(f1, f2);
+  //   return runIO(applied).then((res) => assert.equal(res, 6));
+  // });
   describe("wrapping", () => {
     it("wraps imperative function", () => {
       let variable = 0;
@@ -189,19 +189,19 @@ describe("IO", () => {
     const wrapped1 = withEffects(add);
     const wrapped2 = withEffects(addTwice);
     it("can test without running side-effects", () => {
-      const comp = wrapped1(2).chain((n) => wrapped2(3));
+      const comp = wrapped1(2).chain((_n) => wrapped2(3));
       testIO(comp, [[wrapped1(2), 2], [wrapped2(3), 8]], 8);
       assert.deepEqual(mutableN, 0);
     });
-    it("throws on incorrect function", () => {
-      const comp = wrapped1(2).chain((n) => wrapped2(3));
+    it("throws on incorrect argument", () => {
+      const comp = wrapped1(2).chain((_n) => wrapped2(3));
       assert.throws(() => {
-        const expected = [[call(wrapped2, 2), 2], [call(wrapped2, 3), 8]];
+        const expected = [[call(wrapped2, 2), 2], [call(wrapped2, 4), 8]];
         testIO(comp, expected, 8);
       });
     });
     it("handles computation ending with `of`", () => {
-      const comp = wrapped1(3).chain((n) => IO.of(4));
+      const comp = wrapped1(3).chain((_n) => IO.of(4));
       testIO(comp, [[wrapped1(3), 3]], 4);
       assert.throws(() => {
         testIO(comp, [[wrapped1(3), 3]], 5);
