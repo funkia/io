@@ -1,6 +1,6 @@
 {
   "name": "@funkia/io",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A library that turns impure code pure.",
   "main": "dist/index.js",
   "module": "dist/es/index.js",
